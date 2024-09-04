@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:http/http.dart' as http;
 import 'package:cat_api_prueba_pragma_jeant/config/bloc/bloc/cat_bloc.dart';
 import 'package:cat_api_prueba_pragma_jeant/domain/models/cat_model.dart';
 import 'package:cat_api_prueba_pragma_jeant/infraestructure/resource/cat_api_repositoy.dart';
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => CatBloc(CatApiRepository()))
+        BlocProvider(create: (context) => CatBloc(CatApiRepository(http.Client())))
       ],
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget blocBodycat() {
     return BlocProvider(
-      create: (context) => CatBloc(CatApiRepository())..add(LoadCatEvent()),
+      create: (context) => CatBloc(CatApiRepository(http.Client()))..add(LoadCatEvent()),
       child: BlocBuilder<CatBloc, CatState>(
         builder: (context, state) {
           if (state is CatLoadingState) {
@@ -125,6 +125,7 @@ class _HomePageState extends State<HomePage> {
                                       border: Border.all(
                                           color: Colors.black, width: 1.0)),
                                   child: CardPreviewresponse(
+                                    key: Key(cat.id!),
                                       adaptabilidad:
                                           cat.adaptability.toString(),
                                       descripcion: cat.description!,

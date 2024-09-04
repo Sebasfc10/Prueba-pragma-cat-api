@@ -41,13 +41,19 @@ dependencies:
   google_fonts: ^4.0.5
   flutter_native_splash: ^2.3.7
   cached_network_image: ^3.1.0
+  mockito: ^5.4.4
+  build_runner:
 
 dev_dependencies:
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 flutter_native_splash:
   image: assets/splash.png
   color: '#f9f9f9'
+  bloc_test: ^9.1.7
+  mockito: ^5.4.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

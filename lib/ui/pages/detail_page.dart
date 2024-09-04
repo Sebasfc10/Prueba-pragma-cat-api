@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cat_api_prueba_pragma_jeant/ui/widgets/native_image_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -46,13 +46,7 @@ class DetailPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.5,
               child: img.isNotEmpty
-                  ? CachedNetworkImage(
-                      imageUrl: img,
-                      placeholder: (context, url) =>
-                          CircularProgressIndicator(),
-                      errorWidget: (context, url, error) =>
-                          Image.asset('assets/path.jpg'),
-                    )
+                  ? NativeImageView(imageUrl: img)
                   : Image.asset('assets/path.jpg'),
             ),
             Expanded(

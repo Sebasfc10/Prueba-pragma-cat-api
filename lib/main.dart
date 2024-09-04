@@ -1,8 +1,6 @@
-import 'package:cat_api_prueba_pragma_jeant/config/bloc/bloc/cat_bloc.dart';
-import 'package:cat_api_prueba_pragma_jeant/infraestructure/resource/cat_api_repositoy.dart';
+
 import 'package:cat_api_prueba_pragma_jeant/ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
